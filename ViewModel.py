@@ -4,7 +4,6 @@ import calendar
 
 
 class ViewModel:
-    # TODO: Add builtin hot_keys
 
     def __init__(self):
         super(ViewModel, self).__init__()
