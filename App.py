@@ -10,15 +10,12 @@ class App(tk.ThemedTk):
         super().__init__()
         self.set_theme_advanced('plastik', brightness=1, saturation=1, hue=1)
         self.title('HotKeys')
-        self.geometry('450x150')
+        if platform.system() == "Windows":
+            self.geometry("310x150")
+        else:
+            self.geometry('450x150')
         self.resizable(False, False)
         self.configure(background='#35A9EF')
-        # TODO: Try this on Windows
-        # self.iconphoto(False, PhotoImage(file='resources/DataForce_Icon.png'))
-        if platform.system() == "Windows":
-            self.iconbitmap = "resources/DataForce_Icon.ico"
-        else:
-            self.iconbitmap = "resources/DataForce_Icon.icns"
         ttk.Style().configure('TFrame', background='#35A9EF')
         ttk.Style().configure('TLabel', font=('arial', 10), foreground='#FFFFFF', background='#35A9EF')
 
