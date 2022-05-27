@@ -8,6 +8,7 @@ class Macros:
     def __init__(self):
         super().__init__()
         self.controller = keyboard.Controller()
+        self.resetting_keys = [keyboard.Key.backspace, keyboard.Key.space, keyboard.Key.enter, keyboard.Key.tab]
 
     def on_execute(self):
         command = view_model.hot_keys["".join(view_model.list_of_typed_chars)]
@@ -32,12 +33,11 @@ class Macros:
             view_model.list_of_typed_chars.clear()
             pass
 
-    @staticmethod
-    def on_release(key):
+    def on_release(self, key):
         if not view_model.start_macros:
             return
 
-        if key == keyboard.Key.backspace or key == keyboard.Key.space:
+        if key in self.resetting_keys:
             view_model.list_of_typed_chars.clear()
         if key == keyboard.Key.esc:
             # Stop listener
