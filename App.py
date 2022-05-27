@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 from ttkthemes import themed_tk as tk
 
+from globals import view_model
+
 
 class App(tk.ThemedTk):
 
@@ -30,8 +32,10 @@ class App(tk.ThemedTk):
         self.activate_frame = ttk.Frame(self)
         self.activate_frame.grid(row=2, column=0, pady=5)
 
-        self.activate = ttk.Button(self, width=46, text="Activate", state="disabled")
-        self.activate.grid(padx=10, pady=5, sticky=W + E)
+        self.button_text = StringVar()
+        self.button_text.set("Activate")
+        self.activate_btn = ttk.Button(self, width=46, textvariable=self.button_text, state="disabled")
+        self.activate_btn.grid(padx=10, pady=5, sticky=W + E)
 
         self.version_label = ttk.Label(self, text="Version V1.0")
         self.version_label.grid(row=4, column=0, pady=(5, 10))
