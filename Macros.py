@@ -25,7 +25,6 @@ class Macros:
         except AttributeError:
             pass
 
-        print(view_model.list_of_typed_chars)
         try:
             if "".join(view_model.list_of_typed_chars) in view_model.hot_keys.keys():
                 self.on_execute()

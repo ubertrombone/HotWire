@@ -20,4 +20,3 @@ class ViewModel:
         data = csv.reader(open(file, "r", encoding='utf-8-sig'))
         for row in data:
             self.hot_keys[row[0]] = row[1]
-        print(self.hot_keys)
