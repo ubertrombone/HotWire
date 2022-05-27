@@ -13,8 +13,7 @@ class AppExt(App):
 
     def browse(self):
         self.file_entry.delete(0, END)
-        file = filedialog.askopenfilename(filetypes=(('Excel Worksheet', '*.xlsx'),
-                                                     ('CSV', '*.csv')), title='Choose a file')
+        file = filedialog.askopenfilename(filetypes=[('CSV', '*.csv')], title='Choose a file')
         self.file_entry.insert(0, file)
         if len(self.file_entry.get()) > 0:
             view_model.clear_macros()
