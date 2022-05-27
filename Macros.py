@@ -12,15 +12,16 @@ class Macros:
 
     def on_execute(self):
         command = view_model.hot_keys["".join(view_model.list_of_typed_chars)]
+        print(view_model.list_of_typed_chars)
         for i in range(0, len(view_model.list_of_typed_chars)):
-            self.controller.press(keyboard.Key.backspace)
-            self.controller.release(keyboard.Key.backspace)
-        self.controller.type(command)
+            self.controller.tap(keyboard.Key.backspace)
         view_model.list_of_typed_chars.clear()
+        self.controller.type(command)
 
     def on_press(self, key):
         if not view_model.start_macros:
             return
+
         try:
             view_model.list_of_typed_chars.append(key.char)
         except AttributeError:

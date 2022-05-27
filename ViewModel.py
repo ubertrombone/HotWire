@@ -1,4 +1,6 @@
 import csv
+from datetime import date
+import calendar
 
 
 class ViewModel:
@@ -18,5 +20,6 @@ class ViewModel:
 
     def read_csv(self, file):
         data = csv.reader(open(file, "r", encoding='utf-8-sig'))
+        self.hot_keys[".day"] = calendar.day_name[date.today().weekday()]
         for row in data:
             self.hot_keys[row[0]] = row[1]
