@@ -1,3 +1,4 @@
+import platform
 from tkinter import *
 from tkinter import ttk
 from ttkthemes import themed_tk as tk
@@ -12,6 +13,11 @@ class App(tk.ThemedTk):
         self.geometry('450x150')
         self.resizable(False, False)
         self.configure(background='#35A9EF')
+        self.iconphoto(False, PhotoImage(file='resources/DataForce_Icon.png'))
+        if platform.system() == "Windows":
+            self.iconbitmap = "resources/DataForce_Icon.ico"
+        else:
+            self.iconbitmap = "resources/DataForce_Icon.icns"
         ttk.Style().configure('TFrame', background='#35A9EF')
         ttk.Style().configure('TLabel', font=('arial', 10), foreground='#FFFFFF', background='#35A9EF')
 
