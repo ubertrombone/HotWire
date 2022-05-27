@@ -12,7 +12,6 @@ class Macros:
 
     def on_execute(self):
         command = view_model.hot_keys["".join(view_model.list_of_typed_chars)]
-        print(view_model.list_of_typed_chars)
         for i in range(0, len(view_model.list_of_typed_chars)):
             self.controller.tap(keyboard.Key.backspace)
         view_model.list_of_typed_chars.clear()
