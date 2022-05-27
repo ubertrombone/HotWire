@@ -13,7 +13,8 @@ class App(tk.ThemedTk):
         self.geometry('450x150')
         self.resizable(False, False)
         self.configure(background='#35A9EF')
-        self.iconphoto(False, PhotoImage(file='resources/DataForce_Icon.png'))
+        # TODO: Try this on Windows
+        # self.iconphoto(False, PhotoImage(file='resources/DataForce_Icon.png'))
         if platform.system() == "Windows":
             self.iconbitmap = "resources/DataForce_Icon.ico"
         else:
