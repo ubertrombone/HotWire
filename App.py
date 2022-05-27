@@ -2,8 +2,6 @@ from tkinter import *
 from tkinter import ttk
 from ttkthemes import themed_tk as tk
 
-from globals import view_model
-
 
 class App(tk.ThemedTk):
 
