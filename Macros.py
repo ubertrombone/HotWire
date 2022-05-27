@@ -14,8 +14,8 @@ class Macros:
         command = view_model.hot_keys["".join(view_model.list_of_typed_chars)]
         for i in range(0, len(view_model.list_of_typed_chars)):
             self.controller.tap(keyboard.Key.backspace)
-        view_model.list_of_typed_chars.clear()
         self.controller.type(command)
+        view_model.list_of_typed_chars.clear()
 
     def on_press(self, key):
         if not view_model.start_macros:
