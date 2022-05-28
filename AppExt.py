@@ -1,5 +1,4 @@
 from tkinter import END, filedialog
-
 from App import App
 from globals import view_model
 

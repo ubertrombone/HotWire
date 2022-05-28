@@ -1,5 +1,4 @@
 from pynput import keyboard
-
 from globals import view_model
 
 
@@ -16,8 +15,8 @@ class Macros:
         command = view_model.hot_keys["".join(view_model.list_of_typed_chars)]
         for i in range(0, len(view_model.list_of_typed_chars)):
             self.controller.tap(keyboard.Key.backspace)
-        self.controller.type(command)
         view_model.list_of_typed_chars.clear()
+        self.controller.type(command)
 
     def on_press(self, key):
         if not view_model.start_macros:
@@ -32,14 +31,9 @@ class Macros:
         if self.record:
             try:
                 view_model.list_of_typed_chars.append(key.char)
-            except AttributeError:
-                pass
-
-            try:
                 if "".join(view_model.list_of_typed_chars) in view_model.hot_keys.keys():
                     self.on_execute()
-            except TypeError:
-                view_model.list_of_typed_chars.clear()
+            except AttributeError:
                 pass
 
     def on_release(self, key):
