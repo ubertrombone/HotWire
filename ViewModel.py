@@ -19,7 +19,7 @@ class ViewModel:
 
     def read_csv(self, file):
         data = csv.reader(open(file, "r", encoding='utf-8-sig'))
-        self.hot_keys[".day"] = calendar.day_name[date.today().weekday()]
-        self.hot_keys[".month"] = calendar.month_name[date.today().month]
+        self.hot_keys["`day"] = calendar.day_name[date.today().weekday()]
+        self.hot_keys["`month"] = calendar.month_name[date.today().month]
         for row in data:
             self.hot_keys[row[0]] = row[1]
